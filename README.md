@@ -27,3 +27,56 @@ Follow the on-screen prompts to enter your source city, budget, and travel detai
 - **Destination Agent**: Suggests destinations based on budget.
 - **Transport Agent**: Calculates transport and stay costs.
 - **Itinerary Agent**: Generates a day-wise plan.
+
+
+### Architecture Diagram
+
+┌──────────────────────────┐
+│          User            │
+│  (CLI Input: City,       │
+│   Budget, Days)          │
+└────────────┬─────────────┘
+             │
+             ▼
+┌──────────────────────────┐
+│   Travel CLI Interface   │
+│  (Input Handling & UX)   │
+└────────────┬─────────────┘
+             │
+             ▼
+┌──────────────────────────────────────────┐
+│        Multi-Agent Orchestrator           │
+│  (Controls agent execution flow)         │
+└────────────┬─────────────┬───────────────┘
+             │             │
+             │             │
+             ▼             ▼
+┌──────────────────┐   ┌──────────────────┐
+│ Destination Agent│   │ Transport Agent  │
+│ • Selects region │   │ • Chooses travel │
+│ • Picks circuit  │   │   mode (Train)  │
+│ • Filters by     │   │ • Budget aware  │
+│   budget/days    │   └──────────────────┘
+└────────────┬─────┘
+             │
+             ▼
+┌──────────────────────────┐
+│     Itinerary Agent      │
+│ • Day-wise planning      │
+│ • City sequencing        │
+│ • Activity generation    │
+└────────────┬─────────────┘
+             │
+             ▼
+┌──────────────────────────┐
+│     Output Formatter     │
+│ • Table layout           │
+│ • Trip summary           │
+│ • CLI rendering          │
+└────────────┬─────────────┘
+             │
+             ▼
+┌──────────────────────────┐
+│      Final Itinerary     │
+│ (10-day plan + summary)  │
+└──────────────────────────┘
