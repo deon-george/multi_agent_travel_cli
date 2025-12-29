@@ -17,7 +17,7 @@ def destination_agent(source, budget, days):
         }
 
     genai.configure(api_key=api_key)
-    # Using gemini-flash-latest based on available models list
+    
     model = genai.GenerativeModel('gemini-flash-latest')
 
     prompt = f"""
@@ -38,7 +38,7 @@ def destination_agent(source, budget, days):
         response = model.generate_content(prompt)
         text = response.text.strip()
         
-        # Clean up potential markdown formatting
+        
         if text.startswith("```json"):
             text = text[7:]
         if text.endswith("```"):
