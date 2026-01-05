@@ -29,4 +29,5 @@ Follow the on-screen prompts to enter your source city, budget, and travel detai
 - **Itinerary Agent**: Generates a day-wise plan.
 
 
+<img width="2240" height="1400" alt="image" src="https://github.com/user-attachments/assets/03a338f1-3fd3-45a6-9035-c7ded023db73" />
 
