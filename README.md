@@ -1,4 +1,5 @@
-Multi-Agent Travel CLI
+Multi-Agent Travel CLI:
+
 A CLI-based travel itinerary generator using a multi-agent system.
 
 Team Details:
